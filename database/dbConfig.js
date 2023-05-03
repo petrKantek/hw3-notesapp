@@ -10,7 +10,7 @@ const MONGO_URI = process.env.AZURE_COSMOS_CONNECTIONSTRING;
 
 const connectToDB = async () => {
   try {
-    const connect = mongoose.connect(MONGO_URI, connOptions);
+    const connect = await mongoose.connect(MONGO_URI, connOptions);
     if (connect) console.log(`Mongodb connected - ${connect.connection.host}`);
   } catch (err) {
     console.log(`Database error ${err}`);

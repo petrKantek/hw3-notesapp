@@ -10,7 +10,7 @@ exports.getNotes = async (req, res, next) => {
   }
 };
 
-export async function addNote(req, res, next) {
+exports.addNote = async (req, res, next) => {
     try {
       const body = req.body;
       const note = new Note({
