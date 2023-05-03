@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "pa200-notes-app.azurewebsites.net",
+  "host": "http://pa200-hw3-notesapp.azurewebsites.net/",
   "basePath": "/",
   "schemes": [
     "https"
