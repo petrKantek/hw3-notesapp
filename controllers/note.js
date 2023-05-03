@@ -11,22 +11,22 @@ exports.getNotes = async (req, res, next) => {
 };
 
 exports.addNote = async (req, res, next) => {
-    try {
-      const body = req.body;
-      const note = new Note({
-        name: body.name,
-        description: body.description,
-        status: body.status,
-      });
-      const newNote = await note.save();
-      const allNotes = await find();
-      res
-        .status(201)
-        .json({ message: "Note added", note: newNote, notes: allNotes });
-    } catch (error) {
-      next(new CustomError(error.message, 500));
-    }
-  };
+  try {
+    const body = req.body;
+    const note = new Note({
+      name: body.name,
+      description: body.description,
+      status: body.status,
+    });
+    const newNote = await note.save();
+    const allNotes = await Note.find();
+    res
+      .status(201)
+      .json({ message: "Note added", note: newNote, notes: allNotes });
+  } catch (error) {
+    next(new CustomError(error.message, 500));
+  }
+};
 
 exports.deleteNote = async (req, res, next) => {
   try {
